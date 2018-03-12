@@ -1,3 +1,6 @@
+//Luo tiedoston C:/higscores.text ja kirjoittaa siihen saavutettun highscoren
+//Highscore = kuinka monessa vuorossa peli voitettiin
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,38 +12,25 @@ public class Tiedosto {
     public static void teeTiedosto() {
         BufferedWriter bw = null;
         try {
-
-
             File file = new File("C:/highscores.txt");
-
-
             if (!file.exists()) {
                 file.createNewFile();
             }
-
-
         }
         catch (IOException ioe) {
             ioe.printStackTrace();
-
         }
+        uusiEnnatys("500");
     }
 
-
-
+    //kirjoittaa ennätyksen tiedostoon
     public static void uusiEnnatys(String ennatys) {
         String k = ennatys;
         BufferedWriter writer = null;
         try {
-
             File tiedosto = new File("C:/highscores.txt");
-
-
-            FileWriter kirjota = new FileWriter(tiedosto);
-
-
-            writer = new BufferedWriter(kirjota);
-
+            FileWriter kirjoita = new FileWriter(tiedosto);
+            writer = new BufferedWriter(kirjoita);
             writer.write(k);
             writer.close();
 
@@ -48,10 +38,8 @@ public class Tiedosto {
             ioe.printStackTrace();
 
         }
-
-
     }
-
+    //Lukee tiedostossa olevan ennätyksen
     public static String lueEnnatys(){
         File tiedosto = new File("C:\\highscores.txt");
         String ennatys = "";
@@ -59,13 +47,10 @@ public class Tiedosto {
             BufferedReader reader = new BufferedReader(new FileReader(tiedosto));
             ennatys = reader.readLine();
         }
-
         catch (IOException ioe){
             ioe.printStackTrace();
         }
-
         finally{
-
             return ennatys;
         }
     }

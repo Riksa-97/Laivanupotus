@@ -1,3 +1,5 @@
+//Luokka eri laivoja varten, laivoilla on oma pituus, nimi ja merkki
+
 public class Ship {
     private int length;
     private char sign;
@@ -22,10 +24,7 @@ public class Ship {
         return this.sign;
     }
 
-    public int getHealth(){ return this.health; }
-
-    public void setHealth(int i){this.health=i;}
-
-    //Osuma -> health -1
-    //Kun health = 0 -> uppoaa
+    public int getHealth(){
+        return this.health;
+    }
 }
